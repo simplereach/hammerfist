@@ -1,0 +1,115 @@
+/* ::::::::::::::::::::::::::::::::::::::::::::::::::
+
+Legacy Mixins
+
+Legacy Mixins are pulled over from linkcurrent's mixins:
+  (app/assets/stylesheets/mixins/)
+
+THIS FILE WILL EVENTUALLY BE REMOVED
+Functions here will be abstracted to their own, individual mixin files
+similar to _flex.scss, _prefix.scss, etc.
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
+*/
+
+/* ::::::::::::::::::::::::::::::::::::::::::::::::::
+    BORDER
+   ::::::::::::::::::::::::::::::::::::::::::::::::::
+*/
+@mixin borderRadius( $radius ) {
+  -webkit-border-radius: $radius;
+     -moz-border-radius: $radius;
+      -ms-border-radius: $radius;
+       -o-border-radius: $radius;
+          border-radius: $radius;
+}
+
+@mixin granularBorderRadius( $vertical-pos, $horizontal-pos, $radius) {
+  -webkit-border-#{$vertical-pos}-#{$horizontal-pos}-radius: $radius;
+      -moz-border-radius-#{$vertical-pos}#{$horizontal-pos}: $radius;
+          border-#{$vertical-pos}-#{$horizontal-pos}-radius: $radius;
+}
+
+
+/* ::::::::::::::::::::::::::::::::::::::::::::::::::
+    BOX-SHADOW
+   ::::::::::::::::::::::::::::::::::::::::::::::::::
+*/
+@mixin boxShadow( $horizontal, $vertical, $blur, $spread, $color) {
+  -webkit-box-shadow: $horizontal $vertical $blur $spread $color;
+     -moz-box-shadow: $horizontal $vertical $blur $spread $color;
+       -o-box-shadow: $horizontal $vertical $blur $spread $color;
+          box-shadow: $horizontal $vertical $blur $spread $color;
+}
+
+
+/* ::::::::::::::::::::::::::::::::::::::::::::::::::
+    BOX-SIZING
+   ::::::::::::::::::::::::::::::::::::::::::::::::::
+*/
+@mixin borderBox {
+  @include prefix(box-sizing, border-box, webkit moz ms o spec);
+}
+
+
+/* ::::::::::::::::::::::::::::::::::::::::::::::::::
+    BUTTONS
+   ::::::::::::::::::::::::::::::::::::::::::::::::::
+*/
+@mixin btn( $background, $text ) {
+  background: $background;
+  color: $text;
+  border: 1px solid $dullBorder;
+  text-shadow: 0 -1px 0 darken($background, 10%);
+}
+
+
+/* ::::::::::::::::::::::::::::::::::::::::::::::::::
+    LINEAR GRADIENT
+   ::::::::::::::::::::::::::::::::::::::::::::::::::
+*/
+@mixin linearGradient( $topColor, $bottomColor ) {
+  background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from($topColor), to($bottomColor));
+  background-image: -webkit-linear-gradient(top, $topColor, $bottomColor);
+  background-image: -moz-linear-gradient(top, $topColor, $bottomColor);
+  background-image: -ms-linear-gradient(top, $topColor, $bottomColor);
+  background-image: -o-linear-gradient(top, $topColor, $bottomColor);
+}
+
+
+/* ::::::::::::::::::::::::::::::::::::::::::::::::::
+    TYPOGRAPHY
+   ::::::::::::::::::::::::::::::::::::::::::::::::::
+*/
+// courtesy of csswizardry
+@mixin font-size($font-size, $line-height:true){
+  font-size:$font-size;
+  font-size:($font-size / $base-font-size)*1rem;
+  @if $line-height == true{
+    line-height:ceil($font-size / $base-line-height) * ($base-line-height / $font-size);
+  }
+}
+
+// also courtesy of csswizardy
+@mixin headings($from: 1, $to: 6){
+  %base-heading {
+    @content
+  }
+
+  @if $from >= 1 and $to <= 6{
+    @for $i from $from through $to{
+      h#{$i}{
+        @extend %base-heading;
+      }
+    }
+  }
+}
+
+// ditto
+@mixin vendor($property, $value...) {
+    -webkit-#{$property}:$value;
+       -moz-#{$property}:$value;
+        -ms-#{$property}:$value;
+         -o-#{$property}:$value;
+            #{$property}:$value;
+}
