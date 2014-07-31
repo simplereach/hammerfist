@@ -1,11 +1,11 @@
-/* ::::::::::::::::::::::::::::::::::::::::::::::::::   
+/* ::::::::::::::::::::::::::::::::::::::::::::::::::
 
 Extends
 
 A basic set of extends. Will break this out when length dictates, but for now
 seems good...
 
-::::::::::::::::::::::::::::::::::::::::::::::::::      
+::::::::::::::::::::::::::::::::::::::::::::::::::
 */
 
 // display as an inline-block
@@ -45,22 +45,22 @@ seems good...
 
 // grabbing list style from Sassparilla but making them extends instead of mixins
 %unordered {
-   list-style-position: outside; 
+   list-style-position: outside;
    list-style-type: disc;
 }
 
 %unordered-inside {
-   list-style-position: inside; 
+   list-style-position: inside;
    list-style-type: disc;
 }
 
 %ordered {
-  list-style-position: outside; 
+  list-style-position: outside;
   list-style-type: decimal;
 }
 
 %ordered-inside {
-  list-style-position: inside; 
+  list-style-position: inside;
   list-style-type: decimal;
 }
 
@@ -78,3 +78,179 @@ $font-sizes: (6, 7, 8, 9, 10, 11, 12, 14, 16, 18, 21, 24, 36, 48, 60, 72);
   }
 }
 
+
+
+
+/* ::::::::::::::::::::::::::::::::::::::::::::::::::
+    LEGACY IMPORTED EXTENDS
+   ::::::::::::::::::::::::::::::::::::::::::::::::::
+*/
+// make sure anchors become pointers on hover. this improves ember clickability on iOS devices.
+%pointer {
+  cursor: pointer;
+}
+
+%paddingBox {
+  -webkit-background-clip: padding-box;
+     -moz-background-clip: padding;
+          background-clip: padding-box;
+}
+
+// to be used with inputs and buttons using the button style with only a bottom border
+%removeBorder {
+  border-top: 0;
+  border-left: 0;
+  border-right: 0;
+}
+
+%tabs {
+  li {
+    @extend %inlineBlock;
+  }
+  a {
+    display: block;
+    background: lighten($tableBg, 2%);
+    border-top-right-radius: 3px;
+    border-top-left-radius: 3px;
+    padding: .5em 1em .35em 1em;
+    color: $appButtonColor;
+    &:hover {
+      color: $secondaryTxt;
+      //background: lighten($tableBg, 5%);
+    }
+    &.active {
+      color: $secondaryTxt;
+      background: lighten($tableBg, 10%);
+    }
+  }
+}
+
+
+// base extend for article cards
+%cardBase {
+  position: relative;
+  margin-bottom: 2em;
+  h2 {
+    @extend %font14;
+    margin-bottom: 0;
+  }
+  ul {
+    margin: 0;
+    padding: 0;
+  }
+  li {
+    @extend %inlineBlock;
+    vertical-align: middle;
+  }
+  .row {
+    position: relative;
+    margin: 1em 0;
+    background: $tableBg;
+    @include borderRadius( 3px );
+    .article {
+      @extend %font16;
+      padding-right: calcRem( 48 );
+      height: 4.5em;
+      color: #EFEFEF;
+      padding-top: .3em;
+      padding-bottom: .2em;
+    }
+    .wrapper {
+      position: relative;
+      line-height: 1.2em;
+      padding-top: .7em;
+      .title {
+        @extend %inlineBlock;
+        @extend %font16;
+        @extend %truncate;
+        width: 100%;
+        color: $secondaryTxt;
+        margin-bottom: 0;
+      }
+    }
+    span {
+      display: block;
+    }
+  }
+  .article-totals {
+    @extend %font20;
+    text-align: right;
+    padding: .8em 0 .6em 1%;
+    > ul {
+      width: 100%;
+      @include display(flex);
+      @include flex-direction(row);
+      @include align-items(stretch);
+      justify-content: center;
+      align-content: center;
+      align-items: center;
+      > li {
+        @extend %font20;
+        @extend %borderBox;
+        @include flex(1em);
+        position: relative;
+        z-index: z( 'base' );
+        .donut, span {
+          @extend %inlineBlock;
+          float: left;
+        }
+        span {
+          padding-top: .1em;
+        }
+        .donut {
+          margin-right: .8em;
+        }
+      }
+      svg {
+        margin-top: .1em;
+      }
+    }
+  }
+  .chart-dropdown {
+    padding: 0;
+    width: 3em;
+    position: absolute;
+    float: right;
+    right: 1%;
+    top: 0;
+    a {
+      text-align: right;
+    }
+  }
+  .manager {
+    position: absolute;
+    right: 0;
+    top: 10px;
+    opacity: 0.5;
+  }
+}
+
+%detailDropdown {
+  .details {
+    padding: 1.8em 1em .5em 1em;
+    position: relative;
+    overflow: hidden;
+    label {
+      @extend %font12;
+      position: relative;
+      cursor: pointer;
+      display: block;
+      margin-bottom: 1em;
+      width: 100%;
+      text-align: center;
+    }
+    .chart-state, .reset {
+      @extend %inlineBlock;
+    }
+    .networks {
+      @media screen and (max-width: 1500px ) {
+        font-family: $bodyTxtCond;
+      }
+    }
+    .col-1-2 {
+      @media screen and (max-width: 1450px ) {
+        width: 100%;
+      }
+    }
+  }
+}
