@@ -1,0 +1,42 @@
+/* ::::::::::::::::::::::::::::::::::::::::::::::::::
+
+Legacy Functions
+
+Legacy Functions are pulled over from linkcurrent's functions:
+  (app/assets/stylesheets/functions/)
+
+THIS FILE WILL EVENTUALLY BE REMOVED
+Functions here will be abstracted to their own, individual function files
+similar to _lists.scss, _sizing.scss, etc.
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
+*/
+
+/* ::::::::::::::::::::::::::::::::::::::::::::::::::
+    RESPONSIVE
+   ::::::::::::::::::::::::::::::::::::::::::::::::::
+*/
+@function calcRem($target) {
+  @return ($target / 16) + rem;
+}
+
+@function calcEm($target, $context) {
+  @return ( $target / $context ) + em;
+}
+
+@function calcPercent($target, $context) {
+  @return ($target / $context) * 100%;
+}
+
+
+/* ::::::::::::::::::::::::::::::::::::::::::::::::::
+    Z-INDEX
+   ::::::::::::::::::::::::::::::::::::::::::::::::::
+*/
+@function z($layer) {
+  @if not map-has-key($z-layers, $layer) {
+    @warn "No layer found for `#{$layer}` in $z-layers map. Property omitted.";
+  }
+
+  @return map-get($z-layers, $layer);
+}
