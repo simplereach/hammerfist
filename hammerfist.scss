@@ -5,10 +5,12 @@
 @import 'functions/sizing';
 @import 'functions/lists';
 @import 'functions/z-index';
+@import 'functions/legacy-functions';
 
 // Mixins
 @import 'mixins/prefix';
 @import 'mixins/flex';
+@import 'mixins/legacy-mixins';
 
-//Extends 
+//Extends
 @import 'extends/extends';
