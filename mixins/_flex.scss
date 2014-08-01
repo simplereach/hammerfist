@@ -1,4 +1,5 @@
-/* ::::::::::::::::::::::::::::::::::::::::::::::::::   
+/*
+::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
 Flexbox
 
@@ -15,7 +16,7 @@ W3C Flexible Box Layout Module: http://www.w3.org/TR/css3-flexbox/
 Flexbox support matrix:
 http://flexboxlayouts.com/pdfs/flexbox%20browser%20Properties%20.pdf
 
-::::::::::::::::::::::::::::::::::::::::::::::::::      
+::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 */
 
 @mixin display-box {
@@ -70,7 +71,7 @@ http://flexboxlayouts.com/pdfs/flexbox%20browser%20Properties%20.pdf
 // CSS3 Flexible Box Model and property defaults
 // Unified attributes for 2009, 2011, and 2012 flavours.
 
-/* :::::::::::::::::::::::::::::::::::::::::::::::::: 
+/* ::::::::::::::::::::::::::::::::::::::::::::::::::
 
 Flexbox Containers
 
@@ -85,7 +86,7 @@ container box.
 
 http://w3.org/tr/css3-flexbox/#flex-containers
 
-::::::::::::::::::::::::::::::::::::::::::::::::::      
+::::::::::::::::::::::::::::::::::::::::::::::::::
 */
 
 @mixin display($value) {
@@ -110,10 +111,10 @@ http://w3.org/tr/css3-flexbox/#flex-containers
   }
 }
 
-/* ::::::::::::::::::::::::::::::::::::::::::::::::::  
+/* ::::::::::::::::::::::::::::::::::::::::::::::::::
 
 Flexbox Containers
- 
+
 The flex property specifies the components of a flexible length: the flex
 grow factor and flex shrink factor, and the flex basis. When a box is a flex
 item, flex is consulted instead of the main size property to determine the main
@@ -124,7 +125,7 @@ size of the box. If a box is not a flex item, flex has no effect.
 2012 - flex (integer integer width)
 
 //
-::::::::::::::::::::::::::::::::::::::::::::::::::      
+::::::::::::::::::::::::::::::::::::::::::::::::::
 */
 
 @mixin flex($value) {
@@ -140,7 +141,7 @@ size of the box. If a box is not a flex item, flex has no effect.
 }
 
 
-/* :::::::::::::::::::::::::::::::::::::::::::::::::: 
+/* ::::::::::::::::::::::::::::::::::::::::::::::::::
 
 Flexbox Direction
 
@@ -149,7 +150,7 @@ container, by setting the direction of the flex container’s main axis. This
 determines the direction that flex items are laid out in.
 
 2009 - box-orient ( horizontal | vertical | inline-axis | block-axis)
-      - box-direction (normal | reverse)      
+      - box-direction (normal | reverse)
 2011 - flex-direction (row | row-reverse | column | column-reverse)
 2012 - flex-direction (row | row-reverse | column | column-reverse)
 
@@ -157,7 +158,7 @@ Default: row
 
 http://w3.org/tr/css3-flexbox/#flex-direction-property
 
-::::::::::::::::::::::::::::::::::::::::::::::::::      
+::::::::::::::::::::::::::::::::::::::::::::::::::
 */
 
 @mixin flex-direction($value: row) {
@@ -210,10 +211,10 @@ The flex-wrap property controls whether the flex container is single-line or mul
 2012 - flex-wrap (nowrap | wrap | wrap-reverse)
 
 Default: nowrap
- 
+
 http://w3.org/tr/css3-flexbox/#flex-wrap-property
 
-::::::::::::::::::::::::::::::::::::::::::::::::::      
+::::::::::::::::::::::::::::::::::::::::::::::::::
 */
 
 @mixin flex-wrap($value: nowrap) {
@@ -244,7 +245,7 @@ Flexbox Flow (shorthand)
 The flex-flow property is a shorthand for setting the flex-direction and flex-
 wrap properties, which together define the flex container’s main and cross axes.
 
-Values: <flex-direction> | <flex-wrap> 
+Values: <flex-direction> | <flex-wrap>
 
 2009 - no flex-flow (uses box-orient and box-direction - there is no flex-wrap)
 2011 - flex-flow (flex-direction || flex-wrap)
@@ -254,21 +255,21 @@ Default: row nowrap
 
 http://w3.org/tr/css3-flexbox/#flex-flow-property
 
-::::::::::::::::::::::::::::::::::::::::::::::::::      
+::::::::::::::::::::::::::::::::::::::::::::::::::
 */
 
 @mixin flex-flow($flex-direction, $flex-wrap) {
   //2009
   @if $flex-direction == row {
     @include box-orient(horizontal);
-  } 
+  }
   @else if $flex-direction == row-reverse {
     @include box-orient(horizontal);
     @include box-direction(reverse);
   }
   @else if $flex-direction == column {
     @include box-orient(vertical);
-  } 
+  }
   @else if $flex-direction == column-reverse {
     @include box-orient(vertical);
     @include box-direction(reverse);
@@ -295,7 +296,7 @@ Default: 0
 
 http://w3.org/tr/css3-flexbox/#order-property
 
-::::::::::::::::::::::::::::::::::::::::::::::::::      
+::::::::::::::::::::::::::::::::::::::::::::::::::
 */
 
 @mixin order($int: 0) {
@@ -323,7 +324,7 @@ Default: 0
 
 http://w3.org/tr/css3-flexbox/#flex-grow-property
 
-::::::::::::::::::::::::::::::::::::::::::::::::::      
+::::::::::::::::::::::::::::::::::::::::::::::::::
 */
 
 // 2012 - flex-grow (number)
@@ -347,7 +348,7 @@ Default: 1
 
 http://w3.org/tr/css3-flexbox/#flex-shrink-property
 
-::::::::::::::::::::::::::::::::::::::::::::::::::      
+::::::::::::::::::::::::::::::::::::::::::::::::::
 */
 
 // 2012 - flex-shrink (number)
@@ -363,12 +364,12 @@ Flexbox Basis
 
 The flex-basis property sets the flex basis. Negative lengths are invalid.
 
-Values: auto | <width> 
+Values: auto | <width>
 Default: auto
 
 http://www.w3.org/TR/css3-flexbox/#flex-basis-property
 
-::::::::::::::::::::::::::::::::::::::::::::::::::      
+::::::::::::::::::::::::::::::::::::::::::::::::::
 */
 
 // 2012 - flex-basis (number)
@@ -399,14 +400,14 @@ Default: flex-start
 
 http://w3.org/tr/css3-flexbox/#justify-content-property
 
-::::::::::::::::::::::::::::::::::::::::::::::::::      
+::::::::::::::::::::::::::::::::::::::::::::::::::
 */
 
 @mixin justify-content ($value: flex-start) {
 
   // Alt values.
   $alt-value: $value;
-  
+
   @if $value == 'flex-start' {
     $alt-value: start;
   }
@@ -453,7 +454,7 @@ Default: stretch
 
 http://w3.org/tr/css3-flexbox/#align-items-property
 
-::::::::::::::::::::::::::::::::::::::::::::::::::      
+::::::::::::::::::::::::::::::::::::::::::::::::::
 */
 
 @mixin align-items($value: stretch) {
@@ -462,7 +463,7 @@ http://w3.org/tr/css3-flexbox/#align-items-property
 
   @if $value == 'flex-start' {
     $alt-value: start;
-  }    
+  }
 
   @elseif $value == 'flex-end' {
     $alt-value: end;
@@ -473,9 +474,9 @@ http://w3.org/tr/css3-flexbox/#align-items-property
 
   // 2012
   @include prefix(align-items, $value);
-    
+
   // 2011 (IE 10)
-  -ms-flex-align: $alt-value;    
+  -ms-flex-align: $alt-value;
 }
 
 
@@ -497,16 +498,16 @@ Default: auto
 
 http://www.w3.org/TR/css3-flexbox/#align-items-property
 
-::::::::::::::::::::::::::::::::::::::::::::::::::      
+::::::::::::::::::::::::::::::::::::::::::::::::::
 */
 
 @mixin align-self($value: auto) {
 
   $value-2011: $value;
-  
+
   @if $value == 'flex-start' {
     $value-2011: start;
-  }    
+  }
 
   @elseif $value == 'flex-end' {
     $value-2011: end;
@@ -536,16 +537,16 @@ Default: stretch
 
 http://w3.org/tr/css3-flexbox/#align-content-property
 
-::::::::::::::::::::::::::::::::::::::::::::::::::      
+::::::::::::::::::::::::::::::::::::::::::::::::::
 */
 
 @mixin align-content($value: stretch) {
 
   $value-2011: $value;
-  
+
   @if $value == 'flex-start' {
     $value-2011: start;
-  }    
+  }
 
   @elseif $value == 'flex-end' {
     $value-2011: end;

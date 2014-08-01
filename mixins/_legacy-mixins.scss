@@ -1,4 +1,5 @@
-/* ::::::::::::::::::::::::::::::::::::::::::::::::::
+/*
+::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
 Legacy Mixins
 
@@ -9,13 +10,12 @@ THIS FILE WILL EVENTUALLY BE REMOVED
 Functions here will be abstracted to their own, individual mixin files
 similar to _flex.scss, _prefix.scss, etc.
 
-::::::::::::::::::::::::::::::::::::::::::::::::::
+::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 */
 
 /* ::::::::::::::::::::::::::::::::::::::::::::::::::
     BORDER
-   ::::::::::::::::::::::::::::::::::::::::::::::::::
-*/
+   :::::::::::::::::::::::::::::::::::::::::::::::::: */
 @mixin borderRadius( $radius ) {
   -webkit-border-radius: $radius;
      -moz-border-radius: $radius;
@@ -33,8 +33,7 @@ similar to _flex.scss, _prefix.scss, etc.
 
 /* ::::::::::::::::::::::::::::::::::::::::::::::::::
     BOX-SHADOW
-   ::::::::::::::::::::::::::::::::::::::::::::::::::
-*/
+   :::::::::::::::::::::::::::::::::::::::::::::::::: */
 @mixin boxShadow( $horizontal, $vertical, $blur, $spread, $color) {
   -webkit-box-shadow: $horizontal $vertical $blur $spread $color;
      -moz-box-shadow: $horizontal $vertical $blur $spread $color;
@@ -45,8 +44,7 @@ similar to _flex.scss, _prefix.scss, etc.
 
 /* ::::::::::::::::::::::::::::::::::::::::::::::::::
     BOX-SIZING
-   ::::::::::::::::::::::::::::::::::::::::::::::::::
-*/
+   :::::::::::::::::::::::::::::::::::::::::::::::::: */
 @mixin borderBox {
   @include prefix(box-sizing, border-box, webkit moz ms o spec);
 }
@@ -54,8 +52,7 @@ similar to _flex.scss, _prefix.scss, etc.
 
 /* ::::::::::::::::::::::::::::::::::::::::::::::::::
     BUTTONS
-   ::::::::::::::::::::::::::::::::::::::::::::::::::
-*/
+   :::::::::::::::::::::::::::::::::::::::::::::::::: */
 @mixin btn( $background, $text ) {
   background: $background;
   color: $text;
@@ -66,8 +63,7 @@ similar to _flex.scss, _prefix.scss, etc.
 
 /* ::::::::::::::::::::::::::::::::::::::::::::::::::
     LINEAR GRADIENT
-   ::::::::::::::::::::::::::::::::::::::::::::::::::
-*/
+   :::::::::::::::::::::::::::::::::::::::::::::::::: */
 @mixin linearGradient( $topColor, $bottomColor ) {
   background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from($topColor), to($bottomColor));
   background-image: -webkit-linear-gradient(top, $topColor, $bottomColor);
@@ -79,8 +75,7 @@ similar to _flex.scss, _prefix.scss, etc.
 
 /* ::::::::::::::::::::::::::::::::::::::::::::::::::
     TYPOGRAPHY
-   ::::::::::::::::::::::::::::::::::::::::::::::::::
-*/
+   :::::::::::::::::::::::::::::::::::::::::::::::::: */
 // courtesy of csswizardry
 @mixin font-size($font-size, $line-height:true){
   font-size:$font-size;
