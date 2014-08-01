@@ -16,6 +16,6 @@ http://erskinedesign.com/blog/friendlier-colour-names-sass-maps/
 
 // Simple Color Retrieval
 // ...............................................
-@function color-from($palette, $tone: 'base') {
-    @return map-get(map-get($palettes, $palette), $tone);
+@function color-from($palette_name, $palette, $tone: 'base') {
+    @return map-get(map-get($palette_name, $palette), $tone);
 }
