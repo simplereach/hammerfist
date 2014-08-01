@@ -2,14 +2,15 @@
 @import 'settings/config';
 
 // Functions
-@import 'functions/sizing';
+@import 'functions/colors';
 @import 'functions/lists';
+@import 'functions/sizing';
 @import 'functions/z-index';
 @import 'functions/legacy-functions';
 
 // Mixins
-@import 'mixins/prefix';
 @import 'mixins/flex';
+@import 'mixins/prefix';
 @import 'mixins/legacy-mixins';
 
 //Extends
