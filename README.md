@@ -1,4 +1,7 @@
-hammerfist
-=====
+# HAMMERFIST
+Hammerfist is a universally applicable set of mixins and functions.
 
-A loose set of Sass mixins, functions, and extends.
+
+## Credits
+- Bones, from [@pnts](https://github.com/pnts)
+  - See [Bones](https://github.com/pnts/bones)
