@@ -1,0 +1,26 @@
+/*
+::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+Type Functions
+
+Functions to work with type
+These basic functions assist with various typography related styles in CSS.
+Many functions assist with correctly handling maths involved with line heights,
+unit conversions, etc.
+
+References:
+- jonny gotham (https://github.com/jonnygotham)
+
+::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+*/
+
+
+// Line Height Calculation
+// This function will take in a simple numerical value for the font size (in px)
+// and scale the value for line height, finally converting the item to a rem
+// value to return.
+// ...............................................
+@function line-height($px_typesize, $scale: 1.5) {
+  $px_line_height: $px_typesize * $scale;
+  @return $px_line_height / 16;
+}
