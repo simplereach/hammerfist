@@ -21,7 +21,8 @@ References:
 // value to return.
 // ...............................................
 @function line-height($px_typesize, $scale: 1.5) {
-  $px_line_height: $px_typesize * $scale;
+  $raw_value: strip-unit($px_typesize);
+  $px_line_height: $raw_value * $scale;
   $rem_line_height: $px_line_height / 16;
   @return #{$rem_line_height}rem;
 }
