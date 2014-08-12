@@ -1,0 +1,23 @@
+/*
+::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+Utility Functions
+
+Functions to assist in manipulating arguments and handle various calculations
+that are universal in nature (unit conversion, stripping units, etc.)
+
+References:
+- jonny gotham (https://github.com/jonnygotham)
+
+::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+*/
+
+
+// Strip Units
+// Function will take in a value and remove any possible units attached.
+// This is used to sanitize inputs for other mixins and functions before
+// the main calculations take place.
+// ...............................................
+@function strip-unit($num) {
+  @return $num / ($num * 0 + 1);
+}
