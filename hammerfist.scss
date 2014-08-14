@@ -5,7 +5,6 @@
 @import 'functions/colors';
 @import 'functions/lists';
 @import 'functions/sizing';
-@import 'functions/type';
 @import 'functions/utility';
 @import 'functions/z-index';
 @import 'functions/legacy-functions';
@@ -15,3 +14,5 @@
 @import 'mixins/prefix';
 @import 'mixins/legacy-mixins';
 
+// Tandems
+@import 'tandems/type';
