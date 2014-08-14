@@ -1,9 +1,9 @@
 /*
 ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
-Type Functions
+Type Functions and Mixins
 
-Functions to work with type
+Functions and Mixins to work with type
 These basic functions assist with various typography related styles in CSS.
 Many functions assist with correctly handling maths involved with line heights,
 unit conversions, etc.
@@ -14,6 +14,10 @@ References:
 ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 */
 
+
+/* ::::::::::::::::::::::::::::::::::::::::::::::::::
+    FUNCTIONS
+   :::::::::::::::::::::::::::::::::::::::::::::::::: */
 
 // Line Height Calculation
 // This function will take in a simple numerical value for the font size (in px)
@@ -26,3 +30,9 @@ References:
   $rem_line_height: $px_line_height / 16;
   @return #{$rem_line_height}rem;
 }
+
+
+
+/* ::::::::::::::::::::::::::::::::::::::::::::::::::
+    MIXINS
+   :::::::::::::::::::::::::::::::::::::::::::::::::: */
