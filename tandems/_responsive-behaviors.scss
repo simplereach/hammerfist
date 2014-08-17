@@ -1,0 +1,47 @@
+/*
+::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+Responsive Functions and Mixins
+
+Functions and Mixins to work with responsive behaviors
+The functions assist with responsive behaviors, handling things like named
+breakpoints and
+
+References:
+- Hugo Giradel: http://www.sitepoint.com/managing-responsive-breakpoints-sass/
+- jonny gotham (https://github.com/jonnygotham)
+
+::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+*/
+
+
+/* ::::::::::::::::::::::::::::::::::::::::::::::::::
+    FUNCTIONS
+   :::::::::::::::::::::::::::::::::::::::::::::::::: */
+
+
+/* ::::::::::::::::::::::::::::::::::::::::::::::::::
+    MIXINS
+   :::::::::::::::::::::::::::::::::::::::::::::::::: */
+
+// Responsive Style Mixin
+// This mixin requires an external settings map for "breakpoints"
+// This mixin takes in a named breakpoint and outputs a proper media-query for
+// that particular breakpoint style, working in a "mobile-first" method to
+// progressively change the element styles
+// ...............................................
+@mixin responsive-style-at($name) {
+  // If the key exists in the map
+  @if map-has-key($breakpoints, $name) {
+    // Prints a media query based on the value
+    @media #{inspect(map-get($breakpoints, $name))} {
+      @content;
+    }
+  }
+
+  // If the key doesn't exist in the map
+  @else {
+    @warn "Unfortunately, no value could be retrieved from `#{$breakpoint}`. "
+        + "Please make sure it is defined in `$breakpoints` map.";
+  }
+}
