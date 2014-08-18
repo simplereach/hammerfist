@@ -31,15 +31,15 @@ References:
 // progressively change the element styles
 // ...............................................
 @mixin responsive-style-at($name) {
-  // If the key exists in the map
+  // Conditional check for named breakpoint in $breakpoints map
   @if map-has-key($breakpoints, $name) {
-    // Prints a media query based on the value
+    // create media query based on the named breakpoint's value
     @media #{inspect(map-get($breakpoints, $name))} {
       @content;
     }
   }
 
-  // If the key doesn't exist in the map
+  // Error thrown if named breakpoint is not found in $breakpoints map
   @else {
     @warn "Unfortunately, no value could be retrieved from `#{$breakpoint}`. "
         + "Please make sure it is defined in `$breakpoints` map.";
