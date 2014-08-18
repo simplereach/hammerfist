@@ -2,7 +2,6 @@
 @import 'settings/config';
 
 // Functions
-@import 'functions/colors';
 @import 'functions/lists';
 @import 'functions/sizing';
 @import 'functions/utility';
@@ -15,5 +14,6 @@
 @import 'mixins/legacy-mixins';
 
 // Tandems
+@import 'tandems/colors';
 @import 'tandems/responsive-behaviors';
 @import 'tandems/type';

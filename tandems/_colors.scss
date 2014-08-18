@@ -14,6 +14,10 @@ http://erskinedesign.com/blog/friendlier-colour-names-sass-maps/
 ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 */
 
+/* ::::::::::::::::::::::::::::::::::::::::::::::::::
+    FUNCTIONS
+   :::::::::::::::::::::::::::::::::::::::::::::::::: */
+
 // Simple Color Retrieval
 // ...............................................
 @function color-from($palette_name, $palette, $tone: 'base') {
@@ -23,4 +27,20 @@ http://erskinedesign.com/blog/friendlier-colour-names-sass-maps/
   }
 
   @return map-get(map-get($palette_name, $palette), $tone);
+}
+
+
+
+/* ::::::::::::::::::::::::::::::::::::::::::::::::::
+    MIXINS
+   :::::::::::::::::::::::::::::::::::::::::::::::::: */
+
+// Linear Gradient
+// Creates a vertical, linear gradient from top-color to bottom-color
+@mixin linearGradient( $top-color, $bottom-color ) {
+  background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from($top-color), to($bottom-color));
+  background-image: -webkit-linear-gradient(top, $top-color, $bottom-color);
+  background-image: -moz-linear-gradient(top, $top-color, $bottom-color);
+  background-image: -ms-linear-gradient(top, $top-color, $bottom-color);
+  background-image: -o-linear-gradient(top, $top-color, $bottom-color);
 }

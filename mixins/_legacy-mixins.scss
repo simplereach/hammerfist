@@ -64,13 +64,13 @@ similar to _flex.scss, _prefix.scss, etc.
 /* ::::::::::::::::::::::::::::::::::::::::::::::::::
     LINEAR GRADIENT
    :::::::::::::::::::::::::::::::::::::::::::::::::: */
-@mixin linearGradient( $topColor, $bottomColor ) {
-  background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from($topColor), to($bottomColor));
-  background-image: -webkit-linear-gradient(top, $topColor, $bottomColor);
-  background-image: -moz-linear-gradient(top, $topColor, $bottomColor);
-  background-image: -ms-linear-gradient(top, $topColor, $bottomColor);
-  background-image: -o-linear-gradient(top, $topColor, $bottomColor);
-}
+// @mixin linearGradient( $topColor, $bottomColor ) {
+//   background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from($topColor), to($bottomColor));
+//   background-image: -webkit-linear-gradient(top, $topColor, $bottomColor);
+//   background-image: -moz-linear-gradient(top, $topColor, $bottomColor);
+//   background-image: -ms-linear-gradient(top, $topColor, $bottomColor);
+//   background-image: -o-linear-gradient(top, $topColor, $bottomColor);
+// }
 
 
 /* ::::::::::::::::::::::::::::::::::::::::::::::::::
