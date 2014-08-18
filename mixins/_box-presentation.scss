@@ -1,0 +1,37 @@
+/*
+::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+Box Presentation
+
+Mixins that affect the presentation and structure of elements and their
+underlying box-model construction
+
+::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+*/
+
+
+// Border Radius
+// ...............................................
+@mixin border-radius-uniform( $radius ) {
+  -webkit-border-radius: $radius;
+     -moz-border-radius: $radius;
+      -ms-border-radius: $radius;
+       -o-border-radius: $radius;
+          border-radius: $radius;
+}
+
+@mixin border-radius-targeted( $vertical-pos, $horizontal-pos, $radius) {
+  -webkit-border-#{$vertical-pos}-#{$horizontal-pos}-radius: $radius;
+      -moz-border-radius-#{$vertical-pos}#{$horizontal-pos}: $radius;
+          border-#{$vertical-pos}-#{$horizontal-pos}-radius: $radius;
+}
+
+
+// Box Shadow
+// ...............................................
+@mixin box-shadow( $horizontal, $vertical, $blur, $spread, $color) {
+  -webkit-box-shadow: $horizontal $vertical $blur $spread $color;
+     -moz-box-shadow: $horizontal $vertical $blur $spread $color;
+       -o-box-shadow: $horizontal $vertical $blur $spread $color;
+          box-shadow: $horizontal $vertical $blur $spread $color;
+}
