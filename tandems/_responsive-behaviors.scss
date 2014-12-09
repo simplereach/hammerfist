@@ -34,7 +34,7 @@ References:
   // Conditional check for named breakpoint in $breakpoints map
   @if map-has-key($breakpoints, $name) {
     // create media query based on the named breakpoint's value
-    @media #{inspect(map-get($breakpoints, $name))} {
+    @media #{map-get($breakpoints, $name)} {
       @content;
     }
   }
