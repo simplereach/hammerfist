@@ -13,12 +13,14 @@ CSS-Tricks for Responsive CSS Columns: http://css-tricks.com/guide-responsive-fr
 
 // Multi-Column Container Creation
 // Builds container to flow content into multiple columns. Externally, a height
-// is required on the container for functionality
+// is required on the container for functionality. Column size is ultimately
+// determined by the browser, distributing and accounting for available space
+// and gutters, but min_column_size determines how many can fit *at minimum*
 // ...............................................
-@mixin multi-column-container($column_num: 2, $column_size: 50%, $gutter_size: 1rem) {
-  -webkit-columns: $column_num $column_size;
-     -moz-columns: $column_num $column_size;
-          columns: $column_num $column_size;
+@mixin multi-column-container($column_num: 2, $min_column_size: 25%, $gutter_size: 1rem) {
+  -webkit-columns: $column_num $min_column_size;
+     -moz-columns: $column_num $min_column_size;
+          columns: $column_num $min_column_size;
   -webkit-column-gap: $gutter_size;
      -moz-column-gap: $gutter_size;
           column-gap: $gutter_size;
