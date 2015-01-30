@@ -1,0 +1,46 @@
+/*
+::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+Multi-Column
+
+Mixins that handle CSS columns
+
+Ref:
+CSS-Tricks for Responsive CSS Columns: http://css-tricks.com/guide-responsive-friendly-css-columns/
+
+::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+*/
+
+// Multi-Column Container Creation
+// Builds container to flow content into multiple columns. Externally, a height
+// is required on the container for functionality
+// ...............................................
+@mixin multi-column-container($column_num: 2, $column_size: 50%, $gutter_size: 1rem) {
+  -webkit-columns: $column_num $column_size;
+     -moz-columns: $column_num $column_size;
+          columns: $column_num $column_size;
+  -webkit-column-gap: $gutter_size;
+     -moz-column-gap: $gutter_size;
+          column-gap: $gutter_size;
+
+  // Firefox addition to make content-flow match all other browser implementations, flowing content sequentially
+  -moz-column-fill: auto;
+       column-fill: auto;
+}
+
+// Column Span: break element across ALL columns (no middle ground)
+// Note — does not work in Firefox
+// ...............................................
+@mixin column-span() {
+  -webkit-column-span: all;
+          column-span: all;
+}
+
+
+// CSS Column Add-On: Separating Border
+// ...............................................
+@mixin column-rule($border_width: 1px, $border_style: solid, $border-color: #666) {
+  -webkit-column-rule: $border_width $border_style $border_color;
+     -moz-column-rule: $border_width $border_style $border_color;
+          column-rule: $border_width $border_style $border_color;
+}
